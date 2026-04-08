@@ -214,7 +214,7 @@ function removeColumn(colId) {
 }
 
 function formatKey(key) {
-  const names = { " ": "SPC", ",": ",", ".": ".", ";": ";", "/": "/", "Enter": "ENT", "Shift": "SHF" };
+  const names = { " ": "SPC", ",": ",", ".": ".", ";": ";", "/": "/", "'": "'", "Enter": "ENT", "Shift": "SHF" };
   return names[key] || key.toUpperCase();
 }
 
@@ -343,18 +343,18 @@ function handleLifeStageKey(e) {
   const mode = MODES[state.currentMode];
   if (!mode) return;
 
-  // Stage selection keys: j=adult, k=nymph, l=egg, ;=egg (alias)
-  if (e.key === "j") {
+  // Stage selection keys: Space=adult, Enter=nymph, Shift=egg
+  if (e.key === " ") {
     e.preventDefault();
     setActiveLifeStage("adult");
     return;
   }
-  if (e.key === "k") {
+  if (e.key === "Enter") {
     e.preventDefault();
     setActiveLifeStage("nymph");
     return;
   }
-  if (e.key === "l" || e.key === ";") {
+  if (e.key === "Shift") {
     e.preventDefault();
     setActiveLifeStage("egg");
     return;
@@ -403,7 +403,7 @@ function setInputMode(mode) {
   const indicator = document.getElementById("lifestage-indicator");
   if (mode === "lifestage") {
     indicator.classList.remove("hidden");
-    indicator.textContent = "Press J=Adult  K=Nymph  L=Egg";
+    indicator.textContent = "Press SPC=Adult  ENT=Nymph  SHF=Egg";
     indicator.className = "lifestage-indicator";
   } else {
     indicator.classList.add("hidden");

@@ -417,7 +417,7 @@ const MODES = {
     extraColumns: [],
     availableExtras: ["spider_mite_egg", "predator_egg", "red_persimilis", "white_persimilis", "whitefly", "green_peach_aphid", "cotton_aphid"],
     // Life-stage mode column keys (maps key -> column ID)
-    lifeStageKeys: { "u": "tssm", "i": "lewis", "o": "californicus", "p": "persimilis" },
+    lifeStageKeys: { "j": "tssm", "k": "lewis", "l": "californicus", ";": "persimilis" },
   },
   swd: {
     id: "swd",
@@ -427,7 +427,7 @@ const MODES = {
     defaultColumns: ["swd", "d_melanogaster", "l_japonica", "l_heterotoma", "p_vindemmiae", "t_drosophilae"],
     extraColumns: [],
     availableExtras: [],
-    lifeStageKeys: { "u": "swd", "i": "d_melanogaster", "o": "l_japonica", "p": "l_heterotoma", "y": "p_vindemmiae", "t": "t_drosophilae" },
+    lifeStageKeys: { "j": "swd", "k": "d_melanogaster", "l": "l_japonica", ";": "l_heterotoma", "y": "p_vindemmiae", "t": "t_drosophilae" },
   },
   lygus: {
     id: "lygus",
@@ -437,7 +437,7 @@ const MODES = {
     defaultColumns: ["lygus", "lygus_swd", "common_drosophila", "minute_pirate_bug", "lacewing"],
     extraColumns: [],
     availableExtras: [],
-    lifeStageKeys: { "u": "lygus", "i": "lygus_swd", "o": "common_drosophila", "p": "minute_pirate_bug", "l": "lacewing" },
+    lifeStageKeys: { "j": "lygus", "k": "lygus_swd", "l": "common_drosophila", ";": "minute_pirate_bug", "'": "lacewing" },
   },
 };
 
