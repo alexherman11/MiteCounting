@@ -1,0 +1,12 @@
+{
+  "name": "mite-counter",
+  "version": "1.0.0",
+  "description": "Entomology lab counting tool - replaces physical mite click counters",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}

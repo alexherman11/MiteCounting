@@ -1,0 +1,927 @@
+<?xml version="1.0" encoding="UTF-8"?><w:document xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" mc:Ignorable="w14 w15 w16se w16cid w16 w16cex w16sdtdh w16sdtfl w16du wp14">
+  <w:body>
+    <w:p w14:paraId="2C078E63" w14:textId="53E0350D" w:rsidR="00361849" w:rsidRDefault="256E9CC7">
+      <w:r>
+        <w:t>Counting website</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="23AD47E6" w14:textId="7AA79A1D" w:rsidR="36CE701C" w:rsidRDefault="36CE701C">
+      <w:r>
+        <w:t>General website criteria</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="69869C76" w14:textId="78D51E76" w:rsidR="00DA548E" w:rsidRDefault="00512C8B" w:rsidP="00DA548E">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">The goal of this website is to replace physical mite click counters. It should be easy to use and have good visual feedback. </w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="59C538DB" w14:textId="5A23B4B2" w:rsidR="00AB41BB" w:rsidRDefault="00AB41BB" w:rsidP="00DA548E">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">When the user enters the website they should be prompted to pick between three different modes of counting, SWD, mites, and lygus. On click the website should load up those columns. </w:t>
+      </w:r>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </w:p>
+    <w:p w14:paraId="05CB82C9" w14:textId="6C2D3B86" w:rsidR="256E9CC7" w:rsidRDefault="00DA548E" w:rsidP="00DA548E">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Keys on the keyboard to correspond to each category with two modes for data entry. </w:t>
+      </w:r>
+      
+      
+      
+      
+      
+      
+    </w:p>
+    <w:p w14:paraId="175C3F51" w14:textId="46316F86" w:rsidR="006555B2" w:rsidRDefault="00FC232F" w:rsidP="006555B2">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Each column in the display is its own species, with the top being adult, middle row being nymph, and the bottom being egg. </w:t>
+      </w:r>
+      
+    </w:p>
+    <w:p w14:paraId="5BA5B436" w14:textId="787B9E60" w:rsidR="00F55BE1" w:rsidRDefault="0093063A" w:rsidP="00F55BE1">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Alternatively, there should be a mode where the user can hit space to enter Adult mode, enter to enter nymph mode, and shift to enter egg mode. (when in one of the modes, the row should be lightly highlighted</w:t>
+      </w:r>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </w:p>
+    <w:p w14:paraId="4C092C99" w14:textId="447C4B78" w:rsidR="00F55BE1" w:rsidRDefault="00F55BE1" w:rsidP="00F55BE1">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Visual Style: The app should be friendly with bright colors. The rows within the columns should clearly show the corresponding entry key to the right of the corresponding photo (each column should have three photos corresponding to the three stages of development) The columns should be their own bubble / box, with some small separation between them. The rows within the columns should also be bubbles, and they should mostly fill the column</w:t>
+      </w:r>
+      
+      
+      
+      
+      
+    </w:p>
+    <w:p w14:paraId="6397555D" w14:textId="478FCCEF" w:rsidR="00693DD2" w:rsidRDefault="00693DD2" w:rsidP="00693DD2">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      
+      <w:r>
+        <w:t xml:space="preserve">Each row bubble, should contain an image, the name and the key cap corresponding. If the bubble gets clicked it should pop up a more detailed ID specification that remains within the column. </w:t>
+      </w:r>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </w:p>
+    <w:p w14:paraId="2BDDAD0A" w14:textId="13602ADF" w:rsidR="009B064F" w:rsidRDefault="00F8619E" w:rsidP="00512C8B">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Please attempt to cite the images (if possible).</w:t>
+      </w:r>
+      
+      
+    </w:p>
+    <w:p w14:paraId="62DC7EC8" w14:textId="0B5C1F05" w:rsidR="00512C8B" w:rsidRDefault="00512C8B" w:rsidP="00512C8B">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>At the top there should be a add row button with the ability to add your own or select one from one of the rows not currently in use.</w:t>
+      </w:r>
+      
+      
+      
+      
+    </w:p>
+    <w:tbl>
+      <w:tblPr>
+        <w:tblStyle w:val="TableGrid"/>
+        <w:tblW w:w="7730" w:type="dxa"/>
+        <w:tblLook w:val="06A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="1" w:noVBand="1"/>
+      </w:tblPr>
+      <w:tblGrid>
+        <w:gridCol w:w="1860"/>
+        <w:gridCol w:w="1860"/>
+        <w:gridCol w:w="2047"/>
+        <w:gridCol w:w="1963"/>
+      </w:tblGrid>
+      <w:tr w:rsidR="00F8619E" w14:paraId="591DB4C4" w14:textId="77777777" w:rsidTr="2C5A9B0E">
+        <w:trPr>
+          <w:trHeight w:val="300"/>
+        </w:trPr>
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="1860" w:type="dxa"/>
+          </w:tcPr>
+          <w:p w14:paraId="48F5C836" w14:textId="4AEC0CEF" w:rsidR="00F8619E" w:rsidRDefault="00F8619E" w:rsidP="00E931A6">
+            <w:r>
+              <w:t>u TSSM adult</w:t>
+            </w:r>
+            
+            
+            
+            
+            
+          </w:p>
+        </w:tc>
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="1860" w:type="dxa"/>
+          </w:tcPr>
+          <w:p w14:paraId="180EABE4" w14:textId="1D23F630" w:rsidR="00F8619E" w:rsidRDefault="00F8619E" w:rsidP="00E931A6">
+            
+            <w:r>
+              <w:t>i Lewis adult</w:t>
+            </w:r>
+            
+            
+          </w:p>
+        </w:tc>
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="2047" w:type="dxa"/>
+          </w:tcPr>
+          <w:p w14:paraId="05E50F5E" w14:textId="57A029B7" w:rsidR="00F8619E" w:rsidRDefault="00F8619E" w:rsidP="00E931A6">
+            <w:r>
+              <w:t>o Californicus adult</w:t>
+            </w:r>
+          </w:p>
+        </w:tc>
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="1963" w:type="dxa"/>
+          </w:tcPr>
+          <w:p w14:paraId="3F8B2BD7" w14:textId="0ABC7392" w:rsidR="00F8619E" w:rsidRDefault="00F8619E" w:rsidP="00E931A6">
+            <w:r>
+              <w:t>P Persimilis adult</w:t>
+            </w:r>
+            
+            
+            
+            
+          </w:p>
+        </w:tc>
+      </w:tr>
+      <w:tr w:rsidR="00F8619E" w14:paraId="4EA8B124" w14:textId="77777777" w:rsidTr="2C5A9B0E">
+        <w:trPr>
+          <w:trHeight w:val="300"/>
+        </w:trPr>
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="1860" w:type="dxa"/>
+          </w:tcPr>
+          <w:p w14:paraId="63AC9EFD" w14:textId="1BE1C73A" w:rsidR="00F8619E" w:rsidRDefault="00F8619E" w:rsidP="00E931A6">
+            <w:r>
+              <w:t>j TSSM nymph</w:t>
+            </w:r>
+            
+            
+            
+            
+            
+          </w:p>
+        </w:tc>
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="1860" w:type="dxa"/>
+          </w:tcPr>
+          <w:p w14:paraId="705C3D4E" w14:textId="75C42DE2" w:rsidR="00F8619E" w:rsidRDefault="00F8619E" w:rsidP="00E931A6">
+            <w:r>
+              <w:t>k lewis nymph</w:t>
+            </w:r>
+            
+            
+            
+            
+            
+          </w:p>
+        </w:tc>
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="2047" w:type="dxa"/>
+          </w:tcPr>
+          <w:p w14:paraId="1DA8BAAC" w14:textId="7A92D77E" w:rsidR="00F8619E" w:rsidRDefault="00F8619E" w:rsidP="00E931A6">
+            <w:r>
+              <w:t>l Californicus nymph</w:t>
+            </w:r>
+          </w:p>
+        </w:tc>
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="1963" w:type="dxa"/>
+          </w:tcPr>
+          <w:p w14:paraId="6D0E0A29" w14:textId="4AD9FD92" w:rsidR="00F8619E" w:rsidRDefault="00F8619E" w:rsidP="00E931A6">
+            <w:r>
+              <w:t>; Persimilis nymph</w:t>
+            </w:r>
+            
+            
+            
+            
+          </w:p>
+        </w:tc>
+      </w:tr>
+      <w:tr w:rsidR="00F8619E" w14:paraId="7E07BE4C" w14:textId="77777777" w:rsidTr="2C5A9B0E">
+        <w:trPr>
+          <w:trHeight w:val="300"/>
+        </w:trPr>
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="1860" w:type="dxa"/>
+          </w:tcPr>
+          <w:p w14:paraId="38A0A1CC" w14:textId="0CC51558" w:rsidR="00F8619E" w:rsidRDefault="00F8619E" w:rsidP="00E931A6">
+            <w:r>
+              <w:t>m TSSM egg</w:t>
+            </w:r>
+            
+            
+            
+            
+            
+          </w:p>
+        </w:tc>
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="1860" w:type="dxa"/>
+          </w:tcPr>
+          <w:p w14:paraId="056BE249" w14:textId="77777777" w:rsidR="00F8619E" w:rsidRDefault="00F8619E" w:rsidP="00E931A6">
+            <w:r>
+              <w:t>, lewis egg</w:t>
+            </w:r>
+            
+            
+            
+            
+          </w:p>
+        </w:tc>
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="2047" w:type="dxa"/>
+          </w:tcPr>
+          <w:p w14:paraId="16D4AF76" w14:textId="43B88548" w:rsidR="00F8619E" w:rsidRDefault="00F8619E" w:rsidP="00E931A6">
+            <w:r>
+              <w:t>. Californicus egg</w:t>
+            </w:r>
+          </w:p>
+        </w:tc>
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="1963" w:type="dxa"/>
+          </w:tcPr>
+          <w:p w14:paraId="785C0A65" w14:textId="6FB6F23E" w:rsidR="00F8619E" w:rsidRDefault="00F8619E" w:rsidP="00E931A6">
+            <w:r>
+              <w:t>/ Persimilis egg</w:t>
+            </w:r>
+            
+            
+            
+            
+          </w:p>
+        </w:tc>
+      </w:tr>
+    </w:tbl>
+    <w:p w14:paraId="60F476F0" w14:textId="1CEC2E55" w:rsidR="392A310A" w:rsidRDefault="392A310A"/>
+    <w:p w14:paraId="50678602" w14:textId="42A1C977" w:rsidR="00DA548E" w:rsidRDefault="00DA548E"/>
+    <w:p w14:paraId="318C5329" w14:textId="765B3893" w:rsidR="1372D081" w:rsidRDefault="1372D081" w:rsidP="45593642">
+      <w:r>
+        <w:t>Different projects</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="3EDFC83C" w14:textId="66AB2DDD" w:rsidR="256E9CC7" w:rsidRDefault="0C1E2511" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      
+      <w:r>
+        <w:t>SWD counting</w:t>
+      </w:r>
+      
+      
+    </w:p>
+    <w:p w14:paraId="015D9C40" w14:textId="141A84A2" w:rsidR="256E9CC7" w:rsidRDefault="256E9CC7" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      
+      <w:r>
+        <w:t>SWD male, female</w:t>
+      </w:r>
+      
+      
+    </w:p>
+    <w:p w14:paraId="1F4201CB" w14:textId="2D171E6A" w:rsidR="256E9CC7" w:rsidRDefault="256E9CC7" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:i/>
+          <w:iCs/>
+        </w:rPr>
+        <w:lastRenderedPageBreak/>
+        <w:t>Drosophila melanogaste</w:t>
+      </w:r>
+      <w:r>
+        <w:t>r: M, F</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="5365D768" w14:textId="1C37E8F6" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      
+      <w:r>
+        <w:rPr>
+          <w:i/>
+          <w:iCs/>
+        </w:rPr>
+        <w:t>Leptopolina japonica</w:t>
+      </w:r>
+      
+      
+      <w:r>
+        <w:t>: M, F</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="01597B32" w14:textId="7445039B" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      
+      <w:r>
+        <w:rPr>
+          <w:i/>
+          <w:iCs/>
+        </w:rPr>
+        <w:t>Leptopolina</w:t>
+      </w:r>
+      
+      <w:r>
+        <w:t xml:space="preserve"> heterotoma: M, F</w:t>
+      </w:r>
+      
+      
+      
+      
+    </w:p>
+    <w:p w14:paraId="53A879A8" w14:textId="7E85CEFF" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      
+      <w:r>
+        <w:rPr>
+          <w:i/>
+          <w:iCs/>
+        </w:rPr>
+        <w:t>Pachycrepoideous vindimae</w:t>
+      </w:r>
+      
+      
+      
+      
+      
+      <w:r>
+        <w:t>: M, F</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="36E63ECE" w14:textId="6CA3C020" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      
+      <w:r>
+        <w:rPr>
+          <w:i/>
+          <w:iCs/>
+        </w:rPr>
+        <w:t>Trichopria drosophilae</w:t>
+      </w:r>
+      
+      
+      <w:r>
+        <w:t>: M, F</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="023530F7" w14:textId="1A2DA9F8" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      
+      <w:r>
+        <w:t>Mites counting</w:t>
+      </w:r>
+      
+      
+      
+    </w:p>
+    <w:p w14:paraId="31C701AC" w14:textId="61755C60" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Two-spotted spider mite (TSSM)</w:t>
+      </w:r>
+      
+      
+      
+      
+    </w:p>
+    <w:p w14:paraId="4D0C17DB" w14:textId="768BB403" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="2"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Adult</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="55827747" w14:textId="0601402E" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="2"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Nymph</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="21848D8B" w14:textId="59013EF6" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="2"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Egg</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="7F9C76F9" w14:textId="486659FC" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      
+      <w:r>
+        <w:t>Lewis spider mite (Lewis mite)</w:t>
+      </w:r>
+      
+      
+      
+      
+      
+      
+    </w:p>
+    <w:p w14:paraId="1DAE382E" w14:textId="07A1FB8E" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="2"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Adult</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="6A8F683F" w14:textId="0601402E" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="2"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Nymph</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="19AE2A87" w14:textId="55BB3101" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="2"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Egg</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="03142E8C" w14:textId="18B51A87" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Spider mite egg</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="059094E4" w14:textId="5DE7EE77" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      
+      <w:r>
+        <w:rPr>
+          <w:i/>
+          <w:iCs/>
+        </w:rPr>
+        <w:t>Persimilis</w:t>
+      </w:r>
+      
+    </w:p>
+    <w:p w14:paraId="3DD5E8A3" w14:textId="1EC638A6" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="2"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Adult</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="76BF9AAF" w14:textId="0601402E" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="2"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Nymph</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="6C7B1716" w14:textId="0498B6FE" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="2"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Egg</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="607A9C02" w14:textId="70354630" w:rsidR="01D5FC25" w:rsidRDefault="01D5FC25" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="2"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Red Persimilis</w:t>
+      </w:r>
+      
+      
+      
+    </w:p>
+    <w:p w14:paraId="04CDC2FC" w14:textId="2A4F2B41" w:rsidR="01D5FC25" w:rsidRDefault="01D5FC25" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="2"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>White Persimilis</w:t>
+      </w:r>
+      
+      
+      
+    </w:p>
+    <w:p w14:paraId="3B16ED57" w14:textId="01EF6AC0" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+        <w:rPr>
+          <w:i/>
+          <w:iCs/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:i/>
+          <w:iCs/>
+        </w:rPr>
+        <w:t>Californicus</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="51AE0B28" w14:textId="01104282" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="2"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Adult</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="6875BAE3" w14:textId="0601402E" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="2"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Nymph</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="7A6384FF" w14:textId="22FBC95F" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="2"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Egg</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="0AB59688" w14:textId="3D74DA93" w:rsidR="410825AB" w:rsidRDefault="410825AB" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Predator egg</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="35CE05CB" w14:textId="4CC943CD" w:rsidR="723120A2" w:rsidRDefault="723120A2" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Lygus counting</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="6DB8E75F" w14:textId="75E562EA" w:rsidR="24A3E872" w:rsidRDefault="24A3E872" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Lygus adults</w:t>
+      <w:tab/></w:r>
+      
+    </w:p>
+    <w:p w14:paraId="3BFEAD05" w14:textId="0C482B20" w:rsidR="24A3E872" w:rsidRDefault="24A3E872" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Lygus large nymphs</w:t>
+      <w:tab/></w:r>
+      
+    </w:p>
+    <w:p w14:paraId="1BC5E5AA" w14:textId="54E96A8E" w:rsidR="24A3E872" w:rsidRDefault="24A3E872" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Lygus small nymphs</w:t>
+      <w:tab/></w:r>
+      
+    </w:p>
+    <w:p w14:paraId="5816C59D" w14:textId="7F3CF9F0" w:rsidR="24A3E872" w:rsidRDefault="24A3E872" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      
+      <w:r>
+        <w:t>SWD Males</w:t>
+      <w:tab/></w:r>
+      
+      
+      
+    </w:p>
+    <w:p w14:paraId="0282BAC5" w14:textId="59E735A2" w:rsidR="24A3E872" w:rsidRDefault="24A3E872" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      
+      <w:r>
+        <w:t>SWD Females</w:t>
+      <w:tab/></w:r>
+      
+      
+      
+    </w:p>
+    <w:p w14:paraId="7C439F14" w14:textId="5750286B" w:rsidR="24A3E872" w:rsidRDefault="24A3E872" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Common Drosophila</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="05108445" w14:textId="39ABB879" w:rsidR="24A3E872" w:rsidRDefault="24A3E872" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Minute pirate bugs</w:t>
+      <w:tab/></w:r>
+      
+      
+      
+      
+    </w:p>
+    <w:p w14:paraId="61860129" w14:textId="7D2B7B83" w:rsidR="24A3E872" w:rsidRDefault="24A3E872" w:rsidP="45593642">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t>Lacewings</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="3C99BBEB" w14:textId="0BACA818" w:rsidR="45593642" w:rsidRDefault="45593642" w:rsidP="45593642"/>
+    <w:p w14:paraId="05DBA310" w14:textId="14E67F5B" w:rsidR="45593642" w:rsidRDefault="45593642" w:rsidP="45593642"/>
+    <w:sectPr w:rsidR="45593642">
+      <w:pgSz w:w="12240" w:h="15840"/>
+      <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/>
+      <w:cols w:space="720"/>
+      <w:docGrid w:linePitch="360"/>
+    </w:sectPr>
+  </w:body>
+</w:document>

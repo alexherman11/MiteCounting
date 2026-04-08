@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mite Counter</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- ==================== MODE SELECTOR ==================== -->
+  <div id="mode-selector" class="screen">
+    <h1 class="app-title">Lab Counter</h1>
+    <p class="app-subtitle">Select a counting mode to begin</p>
+    <div class="mode-buttons">
+      <button class="mode-btn mode-mites" data-mode="mites">
+        <span class="mode-icon">🔬</span>
+        <span class="mode-name">Mites</span>
+        <span class="mode-desc">Spider mite &amp; predator counting</span>
+      </button>
+      <button class="mode-btn mode-swd" data-mode="swd">
+        <span class="mode-icon">🪰</span>
+        <span class="mode-name">SWD</span>
+        <span class="mode-desc">Spotted Wing Drosophila counting</span>
+      </button>
+      <button class="mode-btn mode-lygus" data-mode="lygus">
+        <span class="mode-icon">🌿</span>
+        <span class="mode-name">Lygus</span>
+        <span class="mode-desc">Lygus bug counting</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== COUNTER SCREEN ==================== -->
+  <div id="counter-screen" class="screen hidden">
+    <!-- Top Bar -->
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <button id="btn-back" class="bar-btn" title="Back to mode selection">&#9664; Back</button>
+        <span id="mode-label" class="mode-label"></span>
+      </div>
+      <div class="top-bar-center">
+        <div class="input-mode-toggle">
+          <button id="btn-direct" class="toggle-btn active" title="Each key = one counter">Direct Keys</button>
+          <button id="btn-lifestage" class="toggle-btn" title="Space/Enter/Shift selects row, then column key counts">Life Stage</button>
+        </div>
+        <span id="lifestage-indicator" class="lifestage-indicator hidden"></span>
+      </div>
+      <div class="top-bar-right">
+        <button id="btn-add" class="bar-btn" title="Add a column">+ Add</button>
+        <button id="btn-undo" class="bar-btn" title="Undo last count (Ctrl+Z)">Undo</button>
+        <button id="btn-export" class="bar-btn" title="Export counts to clipboard">Export</button>
+        <button id="btn-reset" class="bar-btn bar-btn-danger" title="Reset all counts">Reset</button>
+      </div>
+    </header>
+
+    <!-- Counter Grid -->
+    <main id="counter-grid" class="counter-grid"></main>
+
+    <!-- Add Column Modal -->
+    <div id="add-modal" class="modal-overlay hidden">
+      <div class="modal">
+        <h3>Add Column</h3>
+        <div id="add-modal-list" class="add-modal-list"></div>
+        <div class="add-modal-custom">
+          <input type="text" id="custom-name" placeholder="Custom name...">
+          <button id="btn-add-custom" class="bar-btn">Add Custom</button>
+        </div>
+        <button id="btn-add-close" class="bar-btn modal-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ID POPUP ==================== -->
+  <div id="id-popup" class="id-popup hidden">
+    <button id="id-popup-close" class="id-popup-close">&times;</button>
+    <h3 id="id-popup-title"></h3>
+    <p id="id-popup-sci" class="id-popup-sci"></p>
+    <div id="id-popup-images" class="id-popup-images"></div>
+    <ul id="id-popup-notes" class="id-popup-notes"></ul>
+    <p id="id-popup-citation" class="id-popup-citation"></p>
+  </div>
+
+  <!-- Toast for feedback -->
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
