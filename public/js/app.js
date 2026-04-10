@@ -10,7 +10,28 @@ const state = {
   history: [],             // [{ key, prevValue }, ...]
   activeColumns: [],       // array of species IDs currently shown
   idPopupOpen: null,       // species ID if popup open
+  activeTrial: null,       // { id, name, mode, created_at }
+  observer: localStorage.getItem("observer") || "",
+  currentView: "count",    // "count" | "data"
 };
+
+// ============================================================
+// API Helpers
+// ============================================================
+
+async function api(method, path, body) {
+  const opts = { method, headers: {} };
+  if (body) {
+    opts.headers["Content-Type"] = "application/json";
+    opts.body = JSON.stringify(body);
+  }
+  const res = await fetch(`/api${path}`, opts);
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ error: res.statusText }));
+    throw new Error(err.error || "Request failed");
+  }
+  return res.json();
+}
 
 // ============================================================
 // Initialization
@@ -22,8 +43,18 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", () => loadMode(btn.dataset.mode));
   });
 
+  // Trial picker
+  document.getElementById("btn-trial-back").addEventListener("click", goBackToModes);
+  document.getElementById("btn-create-trial").addEventListener("click", createTrial);
+  document.getElementById("observer-input").value = state.observer;
+  document.getElementById("observer-input").addEventListener("input", (e) => {
+    state.observer = e.target.value.trim();
+    localStorage.setItem("observer", state.observer);
+    updateTrialStartButtons();
+  });
+
   // Top bar buttons
-  document.getElementById("btn-back").addEventListener("click", goBack);
+  document.getElementById("btn-back").addEventListener("click", goBackToTrials);
   document.getElementById("btn-direct").addEventListener("click", () => setInputMode("direct"));
   document.getElementById("btn-lifestage").addEventListener("click", () => setInputMode("lifestage"));
   document.getElementById("btn-undo").addEventListener("click", undo);
@@ -32,6 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btn-add").addEventListener("click", openAddModal);
   document.getElementById("btn-add-close").addEventListener("click", closeAddModal);
   document.getElementById("btn-add-custom").addEventListener("click", addCustomColumn);
+  document.getElementById("btn-submit").addEventListener("click", submitLeaf);
+
+  // Data screen
+  document.getElementById("btn-data").addEventListener("click", showDataScreen);
+  document.getElementById("btn-data-back").addEventListener("click", showCountScreen);
+  document.getElementById("btn-download-xlsx").addEventListener("click", downloadExcel);
 
   // ID popup
   document.getElementById("id-popup-close").addEventListener("click", closeIdPopup);
@@ -49,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ============================================================
-// Mode Loading
+// Mode Loading → Trial Picker
 // ============================================================
 
 function loadMode(modeId) {
@@ -57,10 +94,90 @@ function loadMode(modeId) {
   if (!mode) return;
 
   state.currentMode = modeId;
+
+  // Show trial picker
+  document.getElementById("mode-selector").classList.add("hidden");
+  document.getElementById("trial-picker").classList.remove("hidden");
+  document.getElementById("trial-picker-title").textContent = `${mode.name} Trials`;
+
+  loadTrialList();
+}
+
+async function loadTrialList() {
+  const list = document.getElementById("trial-list");
+  list.innerHTML = '<div class="trial-loading">Loading trials...</div>';
+
+  try {
+    const trials = await api("GET", `/trials?mode=${state.currentMode}`);
+
+    if (trials.length === 0) {
+      list.innerHTML = '<div class="trial-empty">No trials yet. Create one below.</div>';
+      return;
+    }
+
+    list.innerHTML = "";
+    trials.forEach(trial => {
+      const item = document.createElement("div");
+      item.className = "trial-item";
+      const date = new Date(trial.created_at).toLocaleDateString();
+      item.innerHTML = `
+        <div class="trial-item-info">
+          <div class="trial-item-name">${trial.name}</div>
+          <div class="trial-item-meta">${date} &middot; ${trial.sample_count} leaves</div>
+        </div>
+        <button class="bar-btn bar-btn-primary trial-start-btn" data-trial-id="${trial.id}">Start Counting</button>
+      `;
+      item.querySelector(".trial-start-btn").addEventListener("click", () => selectTrial(trial));
+      list.appendChild(item);
+    });
+
+    updateTrialStartButtons();
+  } catch (err) {
+    list.innerHTML = `<div class="trial-empty">Failed to load trials: ${err.message}</div>`;
+  }
+}
+
+async function createTrial() {
+  const nameInput = document.getElementById("new-trial-name");
+  const name = nameInput.value.trim();
+  if (!name) { showToast("Enter a trial name"); return; }
+
+  try {
+    const trial = await api("POST", "/trials", { name, mode: state.currentMode });
+    nameInput.value = "";
+    showToast(`Trial "${trial.name}" created`);
+    loadTrialList();
+  } catch (err) {
+    showToast(`Error: ${err.message}`);
+  }
+}
+
+function selectTrial(trial) {
+  if (!state.observer) {
+    showToast("Enter your name / initials first");
+    document.getElementById("observer-input").focus();
+    return;
+  }
+
+  state.activeTrial = trial;
+  startCounting();
+}
+
+function updateTrialStartButtons() {
+  const btns = document.querySelectorAll(".trial-start-btn");
+  btns.forEach(btn => {
+    btn.disabled = !state.observer;
+  });
+}
+
+function startCounting() {
+  const mode = MODES[state.currentMode];
+
   state.counts = {};
   state.history = [];
   state.inputMode = "direct";
   state.activeLifeStage = null;
+  state.currentView = "count";
 
   // Build active columns
   state.activeColumns = [...mode.defaultColumns, ...mode.extraColumns];
@@ -76,9 +193,10 @@ function loadMode(modeId) {
   });
 
   // Update UI
-  document.getElementById("mode-selector").classList.add("hidden");
+  document.getElementById("trial-picker").classList.add("hidden");
   document.getElementById("counter-screen").classList.remove("hidden");
-  document.getElementById("mode-label").textContent = mode.name + " Mode";
+  document.getElementById("mode-label").textContent = mode.name;
+  document.getElementById("trial-label").textContent = state.activeTrial.name;
 
   // Set toggle state
   document.getElementById("btn-direct").classList.add("active");
@@ -88,14 +206,210 @@ function loadMode(modeId) {
   renderGrid();
 }
 
-function goBack() {
-  if (hasAnyCounts() && !confirm("You have counts. Going back will clear them. Continue?")) return;
+function goBackToModes() {
   state.currentMode = null;
+  state.activeTrial = null;
+  document.getElementById("trial-picker").classList.add("hidden");
+  document.getElementById("mode-selector").classList.remove("hidden");
+}
+
+function goBackToTrials() {
+  if (hasAnyCounts() && !confirm("You have unsaved counts. Going back will discard them. Continue?")) return;
   state.counts = {};
   state.history = [];
+  state.activeTrial = null;
   document.getElementById("counter-screen").classList.add("hidden");
-  document.getElementById("mode-selector").classList.remove("hidden");
+  document.getElementById("data-screen").classList.add("hidden");
+  document.getElementById("trial-picker").classList.remove("hidden");
   closeIdPopup();
+  loadTrialList();
+}
+
+// ============================================================
+// Submit Leaf
+// ============================================================
+
+async function submitLeaf() {
+  if (!hasAnyCounts()) { showToast("Nothing to submit"); return; }
+  if (!state.activeTrial) { showToast("No trial selected"); return; }
+
+  const btn = document.getElementById("btn-submit");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  try {
+    const result = await api("POST", `/trials/${state.activeTrial.id}/samples`, {
+      observer: state.observer,
+      counts: state.counts,
+    });
+
+    showToast(`Leaf #${result.leafNumber} submitted!`);
+
+    // Reset counts without confirmation
+    Object.keys(state.counts).forEach(k => { state.counts[k] = 0; });
+    state.history = [];
+    state.activeColumns.forEach(colId => {
+      const species = SPECIES[colId];
+      if (species) {
+        Object.keys(species.stages).forEach(sk => updateCountDisplay(colId, sk));
+      }
+    });
+  } catch (err) {
+    showToast(`Submit failed: ${err.message}`);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Submit Leaf";
+  }
+}
+
+// ============================================================
+// Data Screen
+// ============================================================
+
+async function showDataScreen() {
+  if (!state.activeTrial) return;
+
+  state.currentView = "data";
+  document.getElementById("counter-screen").classList.add("hidden");
+  document.getElementById("data-screen").classList.remove("hidden");
+  document.getElementById("data-trial-label").textContent =
+    `${MODES[state.currentMode].name} — ${state.activeTrial.name}`;
+
+  await loadDataTable();
+}
+
+function showCountScreen() {
+  state.currentView = "count";
+  document.getElementById("data-screen").classList.add("hidden");
+  document.getElementById("counter-screen").classList.remove("hidden");
+}
+
+async function loadDataTable() {
+  const thead = document.getElementById("data-thead");
+  const tbody = document.getElementById("data-tbody");
+  const tfoot = document.getElementById("data-tfoot");
+  const empty = document.getElementById("data-empty");
+
+  thead.innerHTML = "";
+  tbody.innerHTML = "";
+  tfoot.innerHTML = "";
+
+  try {
+    const data = await api("GET", `/trials/${state.activeTrial.id}/samples`);
+    const samples = data.samples;
+
+    if (samples.length === 0) {
+      empty.classList.remove("hidden");
+      return;
+    }
+    empty.classList.add("hidden");
+
+    // Build column keys from mode's default columns + their stages
+    const mode = MODES[state.currentMode];
+    const countKeys = [];
+    const allColumns = [...mode.defaultColumns, ...(mode.availableExtras || [])];
+    allColumns.forEach(colId => {
+      const species = SPECIES[colId];
+      if (!species) return;
+      Object.keys(species.stages).forEach(stageKey => {
+        const key = `${colId}.${stageKey}`;
+        // Only include columns that have data in any sample
+        const hasData = samples.some(s => (s.counts[key] || 0) > 0);
+        if (hasData) countKeys.push(key);
+      });
+    });
+
+    // Also include any keys in the data that we didn't cover (custom columns)
+    samples.forEach(s => {
+      Object.keys(s.counts).forEach(key => {
+        if (!countKeys.includes(key)) countKeys.push(key);
+      });
+    });
+
+    // Header row
+    const headerRow = document.createElement("tr");
+    headerRow.innerHTML = `<th class="sticky-col">Leaf #</th><th>Observer</th><th>Time</th>`;
+    countKeys.forEach(key => {
+      const th = document.createElement("th");
+      th.textContent = formatCountHeader(key);
+      th.title = key;
+      headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+
+    // Data rows
+    const totals = {};
+    countKeys.forEach(k => { totals[k] = 0; });
+
+    samples.forEach(sample => {
+      const tr = document.createElement("tr");
+      const time = new Date(sample.counted_at).toLocaleString([], {
+        month: "short", day: "numeric", hour: "2-digit", minute: "2-digit"
+      });
+      tr.innerHTML = `<td class="sticky-col">${sample.leaf_number}</td><td>${sample.observer}</td><td>${time}</td>`;
+
+      countKeys.forEach(key => {
+        const val = sample.counts[key] || 0;
+        const td = document.createElement("td");
+        td.className = "count-cell";
+        td.textContent = val || "";
+        tr.appendChild(td);
+        totals[key] += val;
+      });
+
+      // Delete button
+      const delTd = document.createElement("td");
+      delTd.className = "delete-cell";
+      const delBtn = document.createElement("button");
+      delBtn.className = "row-delete-btn";
+      delBtn.textContent = "x";
+      delBtn.title = "Delete this leaf";
+      delBtn.addEventListener("click", async () => {
+        if (!confirm(`Delete Leaf #${sample.leaf_number}?`)) return;
+        try {
+          await api("DELETE", `/samples/${sample.id}`);
+          showToast(`Leaf #${sample.leaf_number} deleted`);
+          loadDataTable();
+        } catch (err) {
+          showToast(`Delete failed: ${err.message}`);
+        }
+      });
+      delTd.appendChild(delBtn);
+      tr.appendChild(delTd);
+
+      tbody.appendChild(tr);
+    });
+
+    // Totals row
+    const totalRow = document.createElement("tr");
+    totalRow.className = "totals-row";
+    totalRow.innerHTML = `<td class="sticky-col"><strong>TOTAL</strong></td><td></td><td></td>`;
+    countKeys.forEach(key => {
+      const td = document.createElement("td");
+      td.className = "count-cell";
+      td.innerHTML = `<strong>${totals[key]}</strong>`;
+      totalRow.appendChild(td);
+    });
+    totalRow.innerHTML += "<td></td>"; // spacer for delete column
+    tfoot.appendChild(totalRow);
+  } catch (err) {
+    empty.textContent = `Failed to load data: ${err.message}`;
+    empty.classList.remove("hidden");
+  }
+}
+
+function formatCountHeader(key) {
+  const [speciesId, stage] = key.split(".");
+  const species = SPECIES[speciesId];
+  const speciesName = species ? (species.name || species.fullName) : speciesId;
+  const stageObj = species && species.stages[stage];
+  const stageLabel = stageObj ? stageObj.label : (stage.charAt(0).toUpperCase() + stage.slice(1));
+  return `${speciesName} ${stageLabel}`;
+}
+
+function downloadExcel() {
+  if (!state.activeTrial) return;
+  window.open(`/api/trials/${state.activeTrial.id}/export.xlsx`, "_blank");
 }
 
 // ============================================================
@@ -289,7 +603,9 @@ function hasAnyCounts() {
 function handleKeydown(e) {
   // Ignore when typing in inputs
   if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
-  if (!state.currentMode) return;
+  if (!state.currentMode || state.currentView !== "count") return;
+  // Don't handle keys if counter screen isn't visible
+  if (document.getElementById("counter-screen").classList.contains("hidden")) return;
 
   // Ctrl+Z = undo
   if (e.ctrlKey && e.key === "z") {
@@ -497,7 +813,7 @@ function closeIdPopup() {
 }
 
 // ============================================================
-// Export
+// Export (clipboard TSV — kept as secondary option)
 // ============================================================
 
 function exportCounts() {
@@ -541,7 +857,6 @@ function openAddModal() {
   list.innerHTML = "";
 
   // Collect all species for this mode that are not currently active
-  // Includes: defaultColumns (removed ones), extraColumns, and availableExtras
   const allForMode = new Set([
     ...(mode.defaultColumns || []),
     ...(mode.extraColumns || []),

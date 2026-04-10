@@ -30,13 +30,40 @@
     </div>
   </div>
 
+  <!-- ==================== TRIAL PICKER ==================== -->
+  <div id="trial-picker" class="screen hidden">
+    <div class="trial-picker-container">
+      <button id="btn-trial-back" class="bar-btn trial-back-btn">&#9664; Back</button>
+      <h2 id="trial-picker-title" class="trial-picker-title">Mites Trials</h2>
+
+      <div class="trial-picker-section">
+        <label class="trial-label">Your Name / Initials</label>
+        <input type="text" id="observer-input" class="trial-input" placeholder="e.g. JD">
+      </div>
+
+      <div class="trial-picker-section">
+        <label class="trial-label">Select a Trial</label>
+        <div id="trial-list" class="trial-list"></div>
+      </div>
+
+      <div class="trial-picker-section">
+        <label class="trial-label">Or Create New Trial</label>
+        <div class="trial-create-row">
+          <input type="text" id="new-trial-name" class="trial-input" placeholder="e.g. Strawberry Field A - Week 12">
+          <button id="btn-create-trial" class="bar-btn bar-btn-primary">Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ==================== COUNTER SCREEN ==================== -->
   <div id="counter-screen" class="screen hidden">
     <!-- Top Bar -->
     <header class="top-bar">
       <div class="top-bar-left">
-        <button id="btn-back" class="bar-btn" title="Back to mode selection">&#9664; Back</button>
+        <button id="btn-back" class="bar-btn" title="Back to trial selection">&#9664; Back</button>
         <span id="mode-label" class="mode-label"></span>
+        <span id="trial-label" class="trial-name-label"></span>
       </div>
       <div class="top-bar-center">
         <div class="input-mode-toggle">
@@ -48,7 +75,9 @@
       <div class="top-bar-right">
         <button id="btn-add" class="bar-btn" title="Add a column">+ Add</button>
         <button id="btn-undo" class="bar-btn" title="Undo last count (Ctrl+Z)">Undo</button>
-        <button id="btn-export" class="bar-btn" title="Export counts to clipboard">Export</button>
+        <button id="btn-submit" class="bar-btn bar-btn-submit" title="Submit this leaf's counts">Submit Leaf</button>
+        <button id="btn-data" class="bar-btn bar-btn-data" title="View submitted data">Data</button>
+        <button id="btn-export" class="bar-btn" title="Copy counts to clipboard">Export</button>
         <button id="btn-reset" class="bar-btn bar-btn-danger" title="Reset all counts">Reset</button>
       </div>
     </header>
@@ -67,6 +96,27 @@
         </div>
         <button id="btn-add-close" class="bar-btn modal-close">Close</button>
       </div>
+    </div>
+  </div>
+
+  <!-- ==================== DATA SCREEN ==================== -->
+  <div id="data-screen" class="screen hidden">
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <button id="btn-data-back" class="bar-btn" title="Back to counting">&#9664; Back to Counting</button>
+        <span id="data-trial-label" class="mode-label"></span>
+      </div>
+      <div class="top-bar-right">
+        <button id="btn-download-xlsx" class="bar-btn bar-btn-primary" title="Download as Excel file">Download Excel</button>
+      </div>
+    </header>
+    <div class="data-table-wrapper">
+      <table id="data-table" class="data-table">
+        <thead id="data-thead"></thead>
+        <tbody id="data-tbody"></tbody>
+        <tfoot id="data-tfoot"></tfoot>
+      </table>
+      <div id="data-empty" class="data-empty hidden">No leaves submitted yet. Go back and submit some counts!</div>
     </div>
   </div>
 
