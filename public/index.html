@@ -11,6 +11,7 @@
   <div id="mode-selector" class="screen">
     <h1 class="app-title">Lab Counter</h1>
     <p class="app-subtitle">Select a counting mode to begin</p>
+    <button class="bar-btn feature-request-btn" onclick="openFeatureModal()" style="margin-bottom:1.5rem;">Feature Request</button>
     <div class="mode-buttons">
       <button class="mode-btn mode-mites" data-mode="mites">
         <span class="mode-icon">🔬</span>
@@ -79,6 +80,7 @@
         <button id="btn-data" class="bar-btn bar-btn-data" title="View submitted data">Data</button>
         <button id="btn-export" class="bar-btn" title="Copy counts to clipboard">Export</button>
         <button id="btn-reset" class="bar-btn bar-btn-danger" title="Reset all counts">Reset</button>
+        <button id="btn-feature" class="bar-btn" title="Submit a feature request">Request</button>
       </div>
     </header>
 
@@ -128,6 +130,20 @@
     <div id="id-popup-images" class="id-popup-images"></div>
     <ul id="id-popup-notes" class="id-popup-notes"></ul>
     <p id="id-popup-citation" class="id-popup-citation"></p>
+  </div>
+
+  <!-- Feature Request Modal -->
+  <div id="feature-modal" class="modal-overlay hidden">
+    <div class="modal">
+      <h3>Feature Request</h3>
+      <p style="font-size:0.85rem;color:#666;margin-bottom:0.75rem;">Have an idea or suggestion? Let us know!</p>
+      <input type="text" id="feature-name" placeholder="Your name (optional)" style="width:100%;padding:0.4rem 0.6rem;border:2px solid #ddd;border-radius:8px;font-size:0.9rem;margin-bottom:0.5rem;">
+      <textarea id="feature-text" placeholder="Describe your feature request..." rows="4" style="width:100%;padding:0.4rem 0.6rem;border:2px solid #ddd;border-radius:8px;font-size:0.9rem;resize:vertical;margin-bottom:0.75rem;font-family:inherit;"></textarea>
+      <div style="display:flex;gap:0.5rem;">
+        <button id="btn-feature-submit" class="bar-btn" style="flex:1;background:#1976D2;color:white;border-color:#1565C0;">Submit</button>
+        <button id="btn-feature-close" class="bar-btn" style="flex:1;">Cancel</button>
+      </div>
+    </div>
   </div>
 
   <!-- Toast for feedback -->

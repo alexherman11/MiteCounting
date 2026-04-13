@@ -11,9 +11,9 @@ const SPECIES = {
     scientificName: "Tetranychus urticae",
     category: "pest",
     stages: {
-      adult:  { label: "Adult",  directKey: "u", image: "images/mites/tssm/tssm_reference.png" },
-      nymph:  { label: "Nymph",  directKey: "j", image: "images/mites/tssm/tssm_reference.png" },
-      egg:    { label: "Egg",    directKey: "m", image: "images/mites/tssm/tssm_egg_nymph_adult_and_californicus.png" },
+      adult:  { label: "Adult",  directKey: "u", image: "images/mites/tssm/tssm_adults_and_nymphs.jpg" },
+      nymph:  { label: "Nymph",  directKey: "j", image: "images/mites/tssm/tssm_adult_and_nymph.jpg" },
+      egg:    { label: "Egg",    directKey: "m", image: "images/mites/tssm/tssm_adult_and_eggs.jpg" },
     },
     idNotes: [
       "Adults are green to orange, boxy shaped, with characteristic black spots on each side",
@@ -27,9 +27,11 @@ const SPECIES = {
       "TSSM can also be orange! Don't get it mixed up with Persimilis. Keep an eye out for the spots",
     ],
     idImages: [
+      { src: "images/mites/tssm/tssm_adults_and_nymphs.jpg", caption: "TSSM adults and nymphs" },
+      { src: "images/mites/tssm/tssm_adult_and_nymph.jpg", caption: "TSSM adult and nymph" },
+      { src: "images/mites/tssm/tssm_adult_and_eggs.jpg", caption: "TSSM adult and eggs" },
       { src: "images/mites/tssm/tssm_orange_variant.jpeg", caption: "TSSM can also be orange" },
       { src: "images/mites/tssm/tssm_extra_spots.jpg", caption: "TSSM with extra spots on rear" },
-      { src: "images/mites/tssm/tssm_egg_nymph_adult_and_californicus.png", caption: "TSSM egg, nymph, adult (also pictured: Californicus)" },
     ],
     citation: { source: "UC IPM", url: "https://ipm.ucanr.edu/agriculture/floriculture-and-ornamental-nurseries/twospotted-spider-mite/" },
   },
@@ -41,8 +43,8 @@ const SPECIES = {
     scientificName: "Eotetranychus lewisi",
     category: "pest",
     stages: {
-      adult:  { label: "Adult",  directKey: "i", image: "images/mites/lewis/lewis_vs_tssm_adults.jpg" },
-      nymph:  { label: "Nymph",  directKey: "k", image: "images/mites/lewis/lewis_mite_nymph.jpg" },
+      adult:  { label: "Adult",  directKey: "i", image: "images/mites/lewis/lewis_and_tssm_adults.jpg" },
+      nymph:  { label: "Nymph",  directKey: "k", image: "images/mites/lewis/lewis_nymph.jpg" },
       egg:    { label: "Egg",    directKey: ",", image: "images/mites/lewis/lewis_mite_reference.png" },
     },
     idNotes: [
@@ -52,9 +54,9 @@ const SPECIES = {
       "(Never is red?)",
     ],
     idImages: [
-      { src: "images/mites/lewis/lewis_vs_tssm_adults.jpg", caption: "Upper: adult Lewis; Lower: TSSM" },
-      { src: "images/mites/lewis/lewis_vs_tssm_nymphs.jpg", caption: "Upper: Lewis nymph; Lower: TSSM nymph" },
-      { src: "images/mites/lewis/lewis_mite_nymph.jpg", caption: "Lewis mite nymph" },
+      { src: "images/mites/lewis/lewis_and_tssm_adults.jpg", caption: "Lewis and TSSM adults" },
+      { src: "images/mites/lewis/lewis_and_tssm_nymph.jpg", caption: "Lewis and TSSM nymph" },
+      { src: "images/mites/lewis/lewis_nymph.jpg", caption: "Lewis nymph" },
     ],
     citation: { source: "UC IPM, Surendra Dara", url: "https://ipm.ucanr.edu/PMG/T/I-AC-TSPP-MC.016.html" },
   },
@@ -67,7 +69,7 @@ const SPECIES = {
     scientificName: "Neoseiulus californicus",
     category: "predator",
     stages: {
-      adult:  { label: "Adult",  directKey: "o", image: "images/mites/californicus/californicus_adult_with_tssm_egg.png" },
+      adult:  { label: "Adult",  directKey: "o", image: "images/mites/californicus/californicus_new.png" },
       nymph:  { label: "Nymph",  directKey: "l", image: "images/mites/californicus/californicus_with_tssm.jpeg" },
       egg:    { label: "Egg",    directKey: ".", image: "images/mites/californicus/californicus_reference.jpeg" },
     },
@@ -79,6 +81,7 @@ const SPECIES = {
       "Larvae are 6-legged, translucent to transparent, and relatively inactive",
     ],
     idImages: [
+      { src: "images/mites/californicus/californicus_new.png", caption: "Californicus" },
       { src: "images/mites/californicus/californicus_adult_with_tssm_egg.png", caption: "Adult Californicus with TSSM egg" },
       { src: "images/mites/californicus/californicus_with_tssm.jpeg", caption: "Californicus with TSSM" },
     ],
@@ -92,9 +95,9 @@ const SPECIES = {
     scientificName: "Phytoseiulus persimilis",
     category: "predator",
     stages: {
-      adult:  { label: "Adult",  directKey: "p", image: "images/mites/persimilis/persimilis_reference.png" },
-      nymph:  { label: "Nymph",  directKey: ";", image: "images/mites/persimilis/persimilis_reference.png" },
-      egg:    { label: "Egg",    directKey: "/", image: "images/mites/persimilis/persimilis_egg_vs_tssm_egg.jpeg" },
+      adult:  { label: "Adult",  directKey: "p", image: "images/mites/persimilis/persimilis_new.jpg" },
+      nymph:  { label: "Nymph",  directKey: ";", image: "images/mites/persimilis/persimilis_new.jpg" },
+      egg:    { label: "Egg",    directKey: "/", image: "images/mites/persimilis/predator_and_pest_egg.jpg" },
     },
     idNotes: [
       "Specific predator on two-spotted spider mite",
@@ -105,7 +108,8 @@ const SPECIES = {
       "Eggs are oval, clear to somewhat orange and approximately twice as large as TSSM eggs",
     ],
     idImages: [
-      { src: "images/mites/persimilis/persimilis_reference.png", caption: "Persimilis" },
+      { src: "images/mites/persimilis/persimilis_new.jpg", caption: "Persimilis" },
+      { src: "images/mites/persimilis/predator_and_pest_egg.jpg", caption: "Predator and pest egg" },
       { src: "images/mites/persimilis/persimilis_egg_vs_tssm_egg.jpeg", caption: "Persimilis egg (left) vs TSSM egg (right)" },
       { src: "images/mites/persimilis/persimilis_vs_californicus.png", caption: "Persimilis vs Californicus" },
     ],
@@ -120,7 +124,7 @@ const SPECIES = {
     scientificName: "",
     category: "pest",
     stages: {
-      egg: { label: "Egg", directKey: "n", image: "images/mites/tssm/tssm_egg_nymph_adult_and_californicus.png" },
+      egg: { label: "Egg", directKey: "n", image: "images/mites/tssm/tssm_adult_and_eggs.jpg" },
     },
     idNotes: ["Generic spider mite egg counter (when species is uncertain)"],
     idImages: [],
@@ -134,7 +138,7 @@ const SPECIES = {
     scientificName: "",
     category: "predator",
     stages: {
-      egg: { label: "Egg", directKey: "h", image: "images/mites/persimilis/persimilis_egg_vs_tssm_egg.jpeg" },
+      egg: { label: "Egg", directKey: "h", image: "images/mites/persimilis/predator_and_pest_egg.jpg" },
     },
     idNotes: ["Generic predator egg counter (when species is uncertain)", "Predator eggs are more ovoid than spider mite eggs"],
     idImages: [],

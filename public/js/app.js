@@ -13,7 +13,11 @@ const state = {
   activeTrial: null,       // { id, name, mode, created_at }
   observer: localStorage.getItem("observer") || "",
   currentView: "count",    // "count" | "data"
+  rebindingKey: null,      // { speciesId, stageKey, element } when waiting for key input
 };
+
+// Load saved key overrides from localStorage
+const keyOverrides = JSON.parse(localStorage.getItem("keyOverrides") || "{}");
 
 // ============================================================
 // API Helpers
@@ -72,6 +76,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ID popup
   document.getElementById("id-popup-close").addEventListener("click", closeIdPopup);
+
+  // Feature request
+  document.getElementById("btn-feature").addEventListener("click", openFeatureModal);
+  document.getElementById("btn-feature-close").addEventListener("click", closeFeatureModal);
+  document.getElementById("btn-feature-submit").addEventListener("click", submitFeatureRequest);
 
   // Keyboard handler
   document.addEventListener("keydown", handleKeydown);
@@ -178,6 +187,9 @@ function startCounting() {
   state.inputMode = "direct";
   state.activeLifeStage = null;
   state.currentView = "count";
+
+  // Apply any saved key overrides
+  applyKeyOverrides();
 
   // Build active columns
   state.activeColumns = [...mode.defaultColumns, ...mode.extraColumns];
@@ -490,13 +502,16 @@ function renderGrid() {
       `;
       row.appendChild(info);
 
-      // Keycap
-      if (stage.directKey) {
-        const key = document.createElement("span");
-        key.className = "stage-key";
-        key.textContent = formatKey(stage.directKey);
-        row.appendChild(key);
-      }
+      // Keycap (always show, clickable to rebind)
+      const keycap = document.createElement("span");
+      keycap.className = "stage-key";
+      keycap.textContent = stage.directKey ? formatKey(stage.directKey) : "—";
+      keycap.title = "Click to change key binding";
+      keycap.addEventListener("click", (e) => {
+        e.stopPropagation();
+        startRebind(colId, stageKey, keycap);
+      });
+      row.appendChild(keycap);
 
       // Click to increment, right-click to decrement
       row.addEventListener("click", () => increment(colId, stageKey));
@@ -530,6 +545,83 @@ function removeColumn(colId) {
 function formatKey(key) {
   const names = { " ": "SPC", ",": ",", ".": ".", ";": ";", "/": "/", "'": "'", "Enter": "ENT", "Shift": "SHF" };
   return names[key] || key.toUpperCase();
+}
+
+function applyKeyOverrides() {
+  for (const [overrideKey, newKey] of Object.entries(keyOverrides)) {
+    const [speciesId, stageKey] = overrideKey.split(".");
+    if (SPECIES[speciesId] && SPECIES[speciesId].stages[stageKey]) {
+      SPECIES[speciesId].stages[stageKey].directKey = newKey;
+    }
+  }
+}
+
+function saveKeyOverride(speciesId, stageKey, newKey) {
+  const key = `${speciesId}.${stageKey}`;
+  if (newKey === null) {
+    keyOverrides[key] = null;
+  } else {
+    keyOverrides[key] = newKey;
+  }
+  localStorage.setItem("keyOverrides", JSON.stringify(keyOverrides));
+}
+
+function startRebind(speciesId, stageKey, keycapEl) {
+  // Cancel any existing rebind
+  cancelRebind();
+
+  state.rebindingKey = { speciesId, stageKey, element: keycapEl };
+
+  // Show overlay on the keycap
+  keycapEl.classList.add("rebinding");
+  keycapEl.textContent = "...";
+
+  // Create a small popup next to the keycap
+  const popup = document.createElement("div");
+  popup.className = "rebind-popup";
+  popup.innerHTML = `
+    <span class="rebind-label">Press a key</span>
+    <button class="rebind-clear">Clear</button>
+  `;
+  popup.querySelector(".rebind-clear").addEventListener("click", (e) => {
+    e.stopPropagation();
+    finishRebind(null);
+  });
+  keycapEl.parentElement.appendChild(popup);
+}
+
+function finishRebind(newKey) {
+  if (!state.rebindingKey) return;
+  const { speciesId, stageKey, element } = state.rebindingKey;
+
+  // Update the species definition
+  SPECIES[speciesId].stages[stageKey].directKey = newKey;
+  saveKeyOverride(speciesId, stageKey, newKey);
+
+  // Update keycap display
+  element.classList.remove("rebinding");
+  if (newKey) {
+    element.textContent = formatKey(newKey);
+  } else {
+    element.textContent = "—";
+  }
+
+  // Remove popup
+  const popup = element.parentElement.querySelector(".rebind-popup");
+  if (popup) popup.remove();
+
+  state.rebindingKey = null;
+}
+
+function cancelRebind() {
+  if (!state.rebindingKey) return;
+  const { speciesId, stageKey, element } = state.rebindingKey;
+  const currentKey = SPECIES[speciesId].stages[stageKey].directKey;
+  element.classList.remove("rebinding");
+  element.textContent = currentKey ? formatKey(currentKey) : "—";
+  const popup = element.parentElement.querySelector(".rebind-popup");
+  if (popup) popup.remove();
+  state.rebindingKey = null;
 }
 
 // ============================================================
@@ -603,6 +695,19 @@ function hasAnyCounts() {
 function handleKeydown(e) {
   // Ignore when typing in inputs
   if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+
+  // If rebinding a key, capture the pressed key
+  if (state.rebindingKey) {
+    e.preventDefault();
+    if (e.key === "Escape") {
+      cancelRebind();
+    } else {
+      finishRebind(e.key);
+      showToast(`Key set to ${formatKey(e.key)}`);
+    }
+    return;
+  }
+
   if (!state.currentMode || state.currentView !== "count") return;
   // Don't handle keys if counter screen isn't visible
   if (document.getElementById("counter-screen").classList.contains("hidden")) return;
@@ -640,16 +745,17 @@ function handleDirectKey(e) {
   const mode = MODES[state.currentMode];
   if (!mode) return;
 
-  // Build key map from active columns
+  // Build key map from active columns — allow multiple bindings to the same key
   const key = e.key;
+  let matched = false;
   for (const colId of state.activeColumns) {
     const species = SPECIES[colId];
     if (!species) continue;
     for (const [stageKey, stage] of Object.entries(species.stages)) {
       if (stage.directKey === key || stage.directKey === key.toLowerCase()) {
-        e.preventDefault();
+        if (!matched) e.preventDefault();
+        matched = true;
         increment(colId, stageKey);
-        return;
       }
     }
   }
@@ -985,6 +1091,48 @@ function closeLightbox() {
     overlay.classList.remove("visible");
     overlay.classList.add("hidden");
   }
+}
+
+// ============================================================
+// Feature Request
+// ============================================================
+
+function openFeatureModal() {
+  document.getElementById("feature-modal").classList.remove("hidden");
+}
+
+function closeFeatureModal() {
+  document.getElementById("feature-modal").classList.add("hidden");
+  document.getElementById("feature-text").value = "";
+  document.getElementById("feature-name").value = "";
+}
+
+function submitFeatureRequest() {
+  const text = document.getElementById("feature-text").value.trim();
+  const name = document.getElementById("feature-name").value.trim();
+
+  if (!text) {
+    showToast("Please describe your request");
+    return;
+  }
+
+  fetch("/api/feature-request", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text, name }),
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        showToast("Feature request submitted!");
+        closeFeatureModal();
+      } else {
+        showToast("Error: " + (data.error || "Unknown error"));
+      }
+    })
+    .catch(() => {
+      showToast("Failed to submit - check connection");
+    });
 }
 
 // ============================================================
